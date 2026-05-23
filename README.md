@@ -12,17 +12,17 @@ Después de cada combate puedes curar a tus unidades hasta un 70% de su vida má
 
 ## Capturas
 
-[Pantalla de inicio]
+<img width="988" height="514" alt="inicio" src="https://github.com/user-attachments/assets/04b25c94-7d86-4845-bd32-b99a9246f7b9" />
 
-[Pantalla principal]
+<img width="1025" height="339" alt="instrucciones" src="https://github.com/user-attachments/assets/d5bec6c1-8f4c-4329-aa1d-8ed1b35c8812" />
 
-[Contratar tropas]
+<img width="1020" height="351" alt="contratar" src="https://github.com/user-attachments/assets/e2edd9a0-3d0e-4e8c-a198-8fb24f7bba3c" />
 
-[Despedir tropas]
+<img width="1025" height="334" alt="despedir" src="https://github.com/user-attachments/assets/c8b3b6b7-af34-4e6e-aad4-5caab88128b4" />
 
-[Combate turno 9]
+<img width="1023" height="554" alt="combate" src="https://github.com/user-attachments/assets/a94d8812-57bf-4160-9206-0f3a6900aece" />
 
-[Información del ejército]
+<img width="1022" height="340" alt="informacion" src="https://github.com/user-attachments/assets/2eeadccb-064d-4191-9733-c8b210bdeafc" />
 
 ---
 
