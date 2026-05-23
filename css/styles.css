@@ -1,0 +1,410 @@
+/* Variables globales*/
+:root {
+    /* Colores de fondo */
+    --color-fondo:          rgb(41, 49, 61);
+    --color-panel:          rgb(75, 90, 109);
+    --color-tarjeta:        rgb(80, 93, 113);
+    --barra-fondo:          rgb(30, 30, 30);
+
+    /* Botón principal (azul) */
+    --btn-bg:               rgb(49, 114, 213);
+    --btn-bg-hover:         rgb(82, 135, 215);
+    --btn-sombra:           rgb(23, 23, 49);
+    --btn-borde:            rgb(33, 23, 106);
+
+    /* Botón deshabilitado */
+    --btn-dis-bg:           rgb(113, 117, 122);
+    --btn-dis-sombra:       rgb(13, 13, 22);
+    --btn-dis-borde:        rgb(40, 40, 46);
+
+    /* Botón acción seleccionado (foco) */
+    --btn-focus-bg:         rgb(225, 170, 33);
+    --btn-focus-sombra:     rgb(64, 48, 10);
+    --btn-focus-borde:      rgb(77, 68, 21);
+
+    /* Botón combate + salir sin guardar (rojo)*/
+    --btn-red-bg:           rgb(169, 16, 16);
+    --btn-red-bg-hover:     rgb(195, 45, 45);
+    --btn-red-sombra:       rgb(71, 7, 7);
+    --btn-red-borde:        rgb(80, 0, 0);
+
+    /* Botón abandonar */
+    --btn-orange-bg:        rgb(221, 142, 40);
+    --btn-orange-bg-hover:  rgb(223, 157, 72);
+    --btn-orange-sombra:    rgb(53, 26, 2);
+    --btn-orange-borde:     rgb(121, 74, 4);
+
+    /* Botón guardar/confirmar */
+    --btn-green-bg:         rgb(42, 146, 65);
+    --btn-green-bg-hover:   rgb(99, 194, 120);
+    --btn-green-sombra:     rgb(4, 51, 24);
+    --btn-green-borde:      rgb(2, 74, 14);
+
+    /* Texto */
+    --color-texto:          antiquewhite;
+    --color-stat:           rgb(124, 206, 0);
+    --color-habilidad:      rgb(26, 181, 26);
+    --color-ventaja:        yellow;
+    --color-aviso-ok:       rgb(58, 214, 58);
+}
+
+/* ---------- BASE ----------*/
+@font-face {
+    font-family: 'MedievalSharp';
+    src: url(../fuentes/MedievalSharp-Regular.ttf), ;
+}
+/*Tipo de letra para toda la pagina, color de fondo y color de texto*/
+* {
+    font-family: 'MedievalSharp','Trebuchet MS';
+    color: var(--color-texto);
+}
+body {
+    background-color: var(--color-fondo);
+}
+
+/* ---------- PANTALLA DE INICIO ----------*/
+#inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#inicio img {
+    width: 600px;
+    padding: 20px;
+}
+#inicio p {
+    font-size: 30px;
+    margin: 0;
+}
+#botonesInicio {
+    display: flex;
+    padding: 5px;
+    margin: 10px;
+    gap: 20px;
+}
+#botonesInicio .btnInicio{
+    width: 100px;
+    font-size: 20px;
+    background-color: var(--btn-bg);
+    box-shadow: 5px 5px var(--btn-sombra);
+    border: 4px var(--btn-borde) solid;
+}
+#botonesInicio .btnInicio:hover{
+    background-color: var(--btn-bg-hover);
+}
+#botonesInicio .btnInicio:disabled {
+    background-color: var(--btn-dis-bg);
+    box-shadow: 5px 5px var(--btn-dis-sombra);
+    border: 4px var(--btn-dis-borde) solid;
+}
+button {
+    transition: background-color 0.2s;
+}
+button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+/* ---------- LAYOUT DEL JUEGO (3 columnas) ----------*/
+#juego {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+#juego #botones, #infoPartida {
+    background-color: var(--color-panel);
+    display: flex;
+    flex-direction: column;
+}
+#juego #infoPartida{
+    background-color: var(--color-panel);
+    margin-left: 5px;
+    padding: 10px;
+}
+#juego #infoPartida span {
+    color: var(--color-stat);
+    font-weight: 800;
+}
+
+/* ---------- BOTONES DE ACCIÓN (columna izquierda) ----------*/
+#juego #botones .botonAccion {
+    font-size: 17px;
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--btn-bg);
+    box-shadow: 5px 5px var(--btn-sombra);
+    border: 4px var(--btn-borde) solid;
+}
+#juego #botones .botonAccion:hover{
+    background-color: var(--btn-bg-hover);
+}
+#juego #botones .botonAccion:disabled {
+    background-color: var(--btn-dis-bg);
+    box-shadow: 5px 5px var(--btn-dis-sombra);
+    border: 4px var(--btn-dis-borde) solid;
+}
+#juego #botones .botonAccion:focus {
+    background-color: var(--btn-focus-bg);
+    box-shadow: 5px 5px var(--btn-focus-sombra);
+    border: 4px var(--btn-focus-borde) solid;
+}
+
+/* ---------- PANTALLA CENTRAL ----------*/
+#juego #pantallaCentro {
+    margin: 10px;
+}
+#juego #pantallaCentro .oculto {
+    display: none !important;
+}
+#pantallaCentro > div {
+    animation: aparecer 0.5s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+#juego #pantallaCentro #instrucciones {
+    text-align: center;
+}
+#juego #pantallaCentro #instrucciones ul li{
+    list-style: none;
+    padding: 10px;
+    text-align: left;
+}
+#juego #pantallaCentro #tropasContratar, #tropasDespedir, #muestraInfo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#juego #pantallaCentro .tarjetaTropa{
+    background-color: var(--color-tarjeta);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 180px;
+    min-height: 200px;
+    position: relative;
+    transition: transform 0.2s;
+}
+.tarjetaTropa:hover {
+    transform: scale(1.03);
+}
+.tarjetaTropa img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.tarjetaTropa .barra-fondo {
+    width: 100%;
+}
+/* Botón genérico en pantalla central */
+#juego #pantallaCentro button {
+    background-color: var(--btn-bg);
+    box-shadow: 3px 3px var(--btn-sombra);
+    border: 2px var(--btn-borde) solid;
+    padding: 5px;
+}
+#juego #pantallaCentro button:hover {
+    background-color: var(--btn-bg-hover);
+}
+#juego #pantallaCentro button:disabled {
+    background-color: var(--btn-dis-bg);
+    box-shadow: 3px 3px var(--btn-dis-sombra);
+    border: 2px var(--btn-dis-borde) solid;
+}
+
+#btnGenerarOtras {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Botón combatir */
+#juego #pantallaCentro #botonFight {
+    background-color: var(--btn-red-bg);
+    box-shadow: 3px 3px var(--btn-red-sombra);
+    border: 2px var(--btn-red-borde) solid;
+    font-size: 20px;
+    padding: 12px 20px;
+    animation: pulso 1.5s ease-in-out infinite;
+}
+@keyframes pulso {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.08); }
+}
+#juego #pantallaCentro #botonFight:hover {
+    background-color: var(--btn-red-bg-hover);
+}
+#combate > p {
+    text-align: center;
+    font-size: 22px;
+}
+#infoCombate {
+    background-color: var(--color-panel);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    border-left: 4px solid var(--btn-bg);
+}
+#infoCombate p {
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+#juego #pantallaCentro #combate #infoCombate .habilidad {
+    color: var(--color-habilidad);
+}
+#juego #pantallaCentro #combate #infoCombate .ventaja {
+    color: var(--color-ventaja);
+}
+#ataqueJugador, #ataqueEnemigo {
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+#ataqueJugador {
+    background-color: rgba(49, 114, 213, 0.15);
+}
+
+#ataqueEnemigo {
+    background-color: rgba(169, 16, 16, 0.15);
+}
+#centroCombate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+#vs {
+    font-size: 24px;
+    text-align: center;
+}
+.derrotasCombate {
+    padding: 4px 12px;
+    margin: 4px;
+    font-size: 13px;
+    border-bottom: 2px solid var(--btn-bg);
+}
+#contadoresCombate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#juego #pantallaCentro #botonCurar {
+    display: block;
+    margin: 10px auto;
+    font-size: 15px;
+    padding: 10px;
+}
+#juego #pantallaCentro #infoTropasCombate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Botón abandonar */
+#juego #pantallaCentro .btnAbandonar{
+    background-color: var(--btn-orange-bg);
+    box-shadow: 3px 3px var(--btn-orange-sombra);
+    border: 2px var(--btn-orange-borde) solid;
+    padding: 5px;
+    font-size: 15px;
+}
+#juego #pantallaCentro .btnAbandonar:hover{
+    background-color: var(--btn-orange-bg-hover);
+}
+/* Boton de guardar partida*/
+#juego #pantallaCentro #guardarPartida button{
+    background-color: var(--btn-green-bg);
+    box-shadow: 3px 3px var(--btn-green-sombra);
+    border: 2px var(--btn-green-borde) solid;
+    padding: 5px;
+    font-size: 15px;
+}
+#juego #pantallaCentro #guardarPartida button:hover{
+    background-color: var(--btn-green-bg-hover);
+}
+#juego #pantallaCentro .avisoGuardar{
+    color: var(--color-aviso-ok);
+}
+/* Pantalla de salir — partida guardada */
+#juego #pantallaCentro #salir .avisoSalirPartidaGuardada button{
+    background-color: var(--btn-green-bg);
+    box-shadow: 3px 3px var(--btn-green-sombra);
+    border: 2px var(--btn-green-borde) solid;
+    padding: 5px;
+    font-size: 15px;
+}
+#juego #pantallaCentro #salir .avisoSalirPartidaGuardada button:hover{
+    background-color: var(--btn-green-bg-hover);
+}
+/* Pantalla de salir — sin guardar */
+#juego #pantallaCentro #salir .avisoSalirPartidaSinGuardar button{
+    background-color: var(--btn-red-bg);
+    box-shadow: 3px 3px var(--btn-red-sombra);
+    border: 2px var(--btn-red-borde) solid;
+    padding: 5px;
+    font-size: 15px;
+}
+#juego #pantallaCentro #salir .avisoSalirPartidaSinGuardar button:hover{
+    background-color: var(--btn-red-bg-hover);
+}
+/* Pantalla de salir — en combate */
+#juego #pantallaCentro #salir .avisoSalirEnCombate button{
+    background-color: var(--btn-bg);
+    box-shadow: 3px 3px var(--btn-sombra);
+    border: 2px var(--btn-borde) solid;
+    padding: 5px;
+}
+#juego #pantallaCentro #salir .avisoSalirEnCombate button:hover{
+    background-color: var(--btn-bg-hover);
+}
+
+/* ---------- SPINNER DE CARGA ----------*/
+.spinner {
+    display: flex;
+    gap: 6px;
+}
+.spinner::before, .spinner::after, .spinner span {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--btn-bg);
+    border-radius: 50%;
+    animation: rebotar 0.6s infinite alternate;
+}
+.spinner::after { animation-delay: 0.2s; }
+.spinner span   { animation-delay: 0.4s; }
+
+@keyframes rebotar {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-15px); }
+}
+
+/* ---------- PANTALLAS FIN DE PARTIDA ----------*/
+#partidaGanada img, #partidaPerdida img {
+    width: 200px;
+    justify-content: center;
+}
+
+/* ---------- BARRAS DE VIDA ----------*/
+.barra-fondo {
+    background-color: var(--barra-fondo);
+    border-radius: 4px;
+    height: 10px;
+    margin: 4px 0;
+}
+.barra-vida {
+    height: 10px;
+    border-radius: 4px;
+    transition: width 0.3s;
+}
+
+
+

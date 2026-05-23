@@ -1,0 +1,74 @@
+<!-- Muestra las unidades que combaten y la info sobre el combate -->
+<div id="combatir"class="">
+    <p id="avisoCombatir"></p>
+    <div id="combate" class="">
+        <!-- Info sobre el combate (contadores)-->
+        <p id="tituloCombate">¡Que comience el combate!</p>
+        <div id="contadoresCombate">
+            <p class="derrotasCombate">Unidades enemigas derrotadas: <span id="enemigosDerrotados">null</span> de <span id="numEjercitoEnemigo">null</span></p>
+            <p class="derrotasCombate">Aliados derrotados: <span id="aliadosDerrotados">null</span> de <span id="numEjercitoMio">null</span></p>
+        </div>
+        
+        <div id="infoTropasCombate">
+            <div class="tropasCombate">
+                <!-- Info de la unidad del jugador que va a luchar-->
+                <div id="jugador" class="tarjetaTropa">
+                    <p>Unidad del jugador: </p>
+                    <div id="unidadJugador">
+                        <p class="tipoTropa"><span class="tipoJugador">Tropa</span></p>
+                        <img id="fotoTropaJugador" src="">
+                        <p class="atkTropa">ATK: <span id="ataqueBaseJugador">null</span></p>
+                        <p class="pvsTropa">PVs: <span id="vidaActualJugador">null</span> / <span id="vidaMaxJugador">null</span></p>
+                        <div class="barra-fondo">
+                            <div id="barraVidaJugador" class="barra-vida"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- botón para pelear -->
+            <div id="centroCombate">
+                <p id="vs">⚔️ VS ⚔️</p>
+                <button class="boton" id="botonFight">FIGHT!!</button>
+            </div>
+            <div class="tropasCombate">
+                <!-- Info de la unidad del enemigo que va a luchar-->
+                <div id="enemigo" class="tarjetaTropa">
+                    <p>Unidad del enemigo: </p>
+                    <div id="unidadEnemigo">
+                        <p class="tipoTropa"><span class="tipoEnemigo">Tropa</span></p>
+                        <img id="fotoTropaEnemigo" src="">
+                        <p class="atkTropa">ATK: <span id="ataqueBaseEnemigo">null</span></p>
+                        <p class="pvsTropa">PVs: <span id="vidaActualEnemigo">null</span> / <span id="vidaMaxEnemigo">null</span></p>
+                        <div class="barra-fondo">
+                            <div id="barraVidaEnemigo" class="barra-vida"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Info del combate-->
+        <div id="infoCombate" class='oculto'>
+            <div id="divAtaqueJugador">
+                <p id="ataqueJugador">Tu <span class="tipoJugador">tipoTropa</span> ataca <span id="habilidadJugador" class="habilidad"></span> <span id="ventajaJugador" class="ventaja"></span>: <span id="dañoJugador"></span> daño -> 
+                CPU <span class="tipoEnemigo"></span> queda a <span id="vidaEnemigo"></span> PVs <span id='habilidadEsquivarEnemigo' class="habilidad"></span></p>
+            </div>
+            <div id="divAtaqueEnemigo" class="oculto">
+                <p id="ataqueEnemigo">CPU <span class="tipoEnemigo"></span> responde <span id="habilidadEnemigo" class="habilidad"></span> <span id="ventajaEnemigo" class="ventaja"></span>: <span id="dañoEnemigo"></span> de daño -> 
+                Tu <span class="tipoJugador"></span> queda a <span id="vidaJugador"></span> PVs <span id='habilidadEsquivarJugador' class="habilidad"></span></p>
+            </div>
+        </div>
+    </div>
+    <!-- Resultado final del combate-->
+    <div id="pantallaFinalCombate" class="oculto">
+        <div id="victoriaCombate" class="oculto">
+            <p>Enhorabuena! Tu ejército ha ganado el combate</p>
+            <p>Asegúrate de curar a tus unidades u de contratar nuevas tropas antes de pasar al siguiente</p>
+        </div>
+        <div id="derrotaCombate" class="oculto">
+            <p>Lo siento! Tu ejército ha perdido el combate</p>
+            <p>Asegúrate de curar a tus unidades u de contratar nuevas tropas antes de pasar al siguiente</p>
+        </div>
+        <p>Oro obtenido tras el combate: <span id='oroGanado'></span></p>
+    </div>
+    
+</div>

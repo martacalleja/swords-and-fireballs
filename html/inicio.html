@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Swords&Fireballs</title>
+</head>
+<body>
+    <!-- Esto es lo que aparecerá en la pantalla inicial-->
+    <div id="inicio">
+        <img src="../fotos/titulo.png" alt="Swords&Fireballs">
+        <h1>El juego de estrategia donde poderosos ejércitos luchan por la gloria</h1>
+        <p>Elige la dificultad del juego: </p>
+        <div id="botonesInicio">
+            <button class="btnInicio" id="facil">Fácil</button>
+            <button class="btnInicio" id="dificil">Dificil</button>
+            <button class="btnInicio" id="cargarPartida" disabled>Cargar partida</button> <!-- De primeras deshabilitado, comprobar antes si existe partida -->
+        </div>
+    </div>
+    <script>
+        //Botones facil / dificil
+        document.getElementById("facil").addEventListener("click", () => {  //Detecta si se pulsa el botón de fácil
+            localStorage.setItem("modo","nueva");   //Guardamos que hay una partida nueva (modo = nueva)
+            localStorage.setItem("dificultad", "facil");    //Guardamos la dificultad de la partida (dificultad = facil)
+            window.location.href = '../html/juego.html';    //Abrimos la pantalla del juego
+        });
+        document.getElementById('dificil').addEventListener('click', () => {    //Igual que con el botón de facil
+            localStorage.setItem('modo', 'nueva');
+            localStorage.setItem('dificultad', 'dificil');
+            window.location.href = '../html/juego.html';
+        });
+        //Boton cargar partida
+        const btnCargarPartida = document.getElementById('cargarPartida');  //Primero solo 'cogemos' ese botón
+        if (localStorage.getItem('partidaGuardada')){   //Comprobamos si existe alguna partida guardada
+            btnCargarPartida.disabled = false;  //Si es así, habilitamos el botón
+        }
+        btnCargarPartida.addEventListener('click', () => {  //Comprobamos si hace click en cargar partida
+            localStorage.setItem('modo', 'cargar'); //Igual que antes
+            window.location.href = '../html/juego.html';
+        });
+    </script>
+</body>
+</html>

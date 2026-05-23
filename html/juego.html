@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Swords&Fireballs</title>
+</head>
+<body>
+    <!-- Aquí ya se desarrolla todo el juego -->
+    <div id="juego">
+        <!-- Los botones aparecerán verticalmente en la izquierda -->
+        <div id="botones">
+            <!-- Mientras se lleva a cabo un combate, todos excepto el de salir estarán desactivados -->
+            <button class="botonAccion" id="contratarAccionBtn">Contratar</button>   <!-- Siempre activo ? -->
+            <button class="botonAccion" id="despedirAccionBtn">Despedir</button> <!-- Solo activo si hay tropas contratadas -->
+            <button class="botonAccion" id="combatirAccionBtn">Combatir</button> <!-- Siempre activo ? -->
+            <button class="botonAccion" id="informacionBtn">Información</button>   <!-- Siempre activo -->
+            <button class="botonAccion" id="guardarBtn">Guardar partida</button>   <!-- Siempre activo -->
+            <button class="botonAccion" id="salirBtn">Salir</button>   <!-- Siempre activo -->
+        </div>
+        <!-- Aqui se mostrará lo que aparecerá en el centro, osea todo el juego-->
+        <div id="pantallaCentro"></div>     
+        <!-- La información de la partida aparecerá verticalmente en la derecha -->
+        <div id="infoPartida">
+            <p>Oro actual: <span id="oroActual">null</span></p>
+            <p>Intentos de contratación: <span id="intentosContratacion">null</span></p>
+            <p>Num tropas: <span id="numTropas">null</span></p>
+            <p>Victorias: <span id="victorias">null</span></p>
+            <p>Derrotas: <span id="derrotas">null</span></p>
+            <p>Recuperación: <span id="recuperacion">null</span></p>
+        </div>
+    </div>
+    <script type="module" src="../clases/juego.js"></script>
+</body>
+</html>
